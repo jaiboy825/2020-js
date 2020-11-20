@@ -6,117 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/app.css">
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/app.js"></script>
 </head>
 
 <body>
     <div class="container">
         <header>
             <div class="logo">
-                <img src="images/LOGO.jpg" alt="">
+                <img src="images/LOGO.jpg" alt="logo">
             </div>
-            <div class="head_menu">
-                <div class="main_menu">
-                    <div class="mm">H&S 소개</div>
-                    <div class="mm">파트너</div>
-                    <div class="mm">커뮤니티</div>
-                </div>
-                <div class="sub_menu">
-                    <div class="sub">
-                        <div class="sm">사진영상</div>
-                        <div class="sm">예복</div>
-                        <div class="sm">예식준비</div>
-                    </div>
-                    <div class="sub">
-                        <div class="sm">이벤트</div>
-                        <div class="sm">플라워</div>
-                        <div class="sm">예식비용</div>
-                    </div>
-                    <div class="sub">
-                        <div class="sm">웨딩작품</div>
-                        <div class="sm">주얼리</div>
-                        <div class="sm">신혼여행</div>
-                    </div>
-                </div>
-            </div>
+            <nav>
+                <ul id="main">
+                    <li>
+                        H&S 소개
+                        <ul class="sub">
+                            <li>사진영상</li>
+                            <li>이벤트</li>
+                            <li>웨딩작품</li>
+                        </ul>
+                    </li>
+                    <li>
+                        파트너
+                        <ul class="sub">
+                            <li>예복</li>
+                            <li>플라워</li>
+                            <li>주얼리</li>
+                        </ul>
+                    </li>
+                    <li>
+                        커뮤니티
+                        <ul class="sub">
+                            <li>예식준비</li>
+                            <li>예식비용</li>
+                            <li>신혼여행</li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
         </header>
-        <div class="main_img">
-            <img src="images/images(1).jpg" alt="">
-            <div class="main_img_header">Wedding Planner</div>
-        </div>
-        <div class="content">
-            <div class="content_up">
-                <div class="notice">
-                    <h2>공지사항</h2>
-                    <div class="notice_container">
-                        <table class="notice_table">
-                            <tr>
-                                <th>내용</th>
-                                <th>날짜</th>
-                            </tr>
-                            <tr class="color">
-                                <td>맞춤 플랜을 제안하는 웨딩 크리에이티브 그룹</td>
-                                <td>2019-05-12</td>
-                            </tr>
-                            <tr>
-                                <td>H&S와 함께 하실 가슴 따뜻한 분들을 모십니다.</td>
-                                <td>2019-05-10</td>
-                            </tr>
-                            <tr class="color">
-                                <td>H&S와 예식을 준비하신 분들께 감사드립니다.</td>
-                                <td>2019-04-09</td>
-                            </tr>
-                            <tr>
-                                <td>코리아웨딩페어 결혼박람회가 열립니다.</td>
-                                <td>2019-03-07</td>
-                            </tr>
-                            <tr class="color">
-                                <td>마진없이 아낌없이 드리는 마지막 찬스</td>
-                                <td>2019-03-05</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="partner">
-                    <h2>Partner</h2>
-                    <div class="partner_container">
-                        <img src="images/PARTNER.jpg" alt="">
-                        <img src="images/PARTNER_UP.png" alt="">
-                    </div>
-                </div>
+        <section id="visual">
+            <h3 class="title">Wedding Planner</h3>
+            <div class="slider">
+                <img src="images/images(1).jpg" alt="img">
+                <img src="images/images(2).jpg" alt="img">
+                <img src="images/images(3).jpg" alt="img">
             </div>
-            <div class="content_down">
-                <div class="content_menu">
-                    <div class="cm">
-                        <img src="images/icon1.png" alt="">
-                        <div class="cm_title">컨설팅</div>
-                    </div>
-                    <div class="cm">
-                        <img src="images/icon2.png" alt="">
-                        <div class="cm_title">스케줄</div>
-                    </div>
-                    <div class="cm">
-                        <img src="images/icon3.png" alt="">
-                        <div class="cm_title">위치 안내</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <footer>
-            <div class="footer_menu">
-                <div class="f_menus">법적고지</div>
-                <div class="f_menus">개인정보취급방침</div>
-                <div class="f_menus">개인정보처리방침</div>
-            </div>
-            <div class="footer_info">
-                <p>사업자번호:228-81-03754</p>
-                <p>상호명:(주)상아웨딩플랜</p>
-                <p>대표자:조상아</p>
-                <p>개인정보관리책임자:신희식</p>
-                <p>상담전화:1588-0789</p>
-                <p>사업장주소:서울특별시 금천구 가산동 가산디지털2로</p>
-                <p>E-mail : master@ddbb.com</p>
-            </div>
-        </footer>
+        </section>
+        <section id="info">
+            <article class="notice"></article>
+            <article class="partner"></article>
+        </section>
+        <section id="icon"></section>
+        <footer></footer>
     </div>
 </body>
 
