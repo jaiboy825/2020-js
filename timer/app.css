@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.timer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    transition: 0.3s;
+    background-color: #ddd;
+}
+
+.data-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.time-box {
+    font: 100px Calibri, arial;
+}
+
+.button-box {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-box>button {
+    width: 100px;
+    height: 100px;
+    border-radius: 10rem;
+    outline: none;
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    transition: border 0.2s;
+    cursor: pointer;
+}
+
+.button-box>button:hover {
+    border: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.text-box {
+    width: 200px;
+    height: 50px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-color: #efefef;
+    cursor: pointer;
+    
+}
+
+.set-box {
+    display: none;
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.set-time-box {
+    width: 600px;
+    height: 250px;
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.set-time-box>input {
+    text-align: center;
+    outline: none;
+    font: 50px Calibri, arial;
+    border: none;
+}
+
+.set-time-box>input:nth-child(2) {
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.set-timer {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+}
+
+.set-timer>input {
+    width: 70%;
+    outline: none;
+    padding: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px 0px 0px 10px;
+}
+
+.set-timer>button {
+    width: 30%;
+    outline: none;
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    border-left: none;
+    border-radius: 0px 10px 10px 0px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.set-timer>button:hover{
+    opacity: 0.8;
+}
