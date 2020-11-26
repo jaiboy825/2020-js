@@ -42,7 +42,7 @@ window.onload = function () {
             h.text($("#h").val());
             m.text($("#m").val());
             s.text($("#s").val());
-            temp = $("#h").val() * 3600 + $("#m").val() + $("#s").val() * 1;
+            temp = $("#h").val() * 3600 + $("#m").val() * 60 + $("#s").val() * 1;
         }
     });
     let stop = false;
