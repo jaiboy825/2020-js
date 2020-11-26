@@ -36,12 +36,29 @@ window.onload = function () {
         if ($(".timer-name").val() == '') {
             alert("타이머 이름을 정해주세요");
         } else {
-            alert("값이 있음")
+            $(".timers-name").text($(".timer-name").val());
             $(".data-box").fadeIn();
             $(".set-box").fadeOut();
-            h.text($("#h").val());
-            m.text($("#m").val());
-            s.text($("#s").val());
+            // 00 틀 맞춰주기
+            if ($("#h").val() < 10) {
+                h.text("0" + $("#h").val());
+            } else {
+                h.text($("#h").val());
+            }
+            if ($("#m").val() < 10) {
+                m.text("0" + $("#m").val());
+            } else {
+                m.text($("#m").val());
+            }
+            if ($("#s").val() < 10) {
+                s.text("0" + $("#s").val());
+            } else {
+                s.text($("#s").val());
+            }
+            // 타이머 시간 모양 맞추기
+            $(".total").text( $("#h").val() + "시간 " + $("#m").val() + "분 " + $("#s").val() + "초");
+            
+            
             temp = $("#h").val() * 3600 + $("#m").val() * 60 + $("#s").val() * 1;
         }
     });
@@ -49,7 +66,7 @@ window.onload = function () {
     let timeId;
     $("#start").on("click", function () {
         let time = h.text() * 3600 + m.text() * 60 + s.text() * 1;
-        if(time == 0) return;
+        if (time == 0) return;
         console.log(temp);
 
         if (stop == false) {
@@ -60,11 +77,21 @@ window.onload = function () {
                 let hour = Math.floor(time / 3600);
                 let min = Math.floor((time - hour * 3600) / 60);
                 let sec = time % 60;
-
-                h.text(hour);
-                m.text(min);
-                s.text(sec);
-
+                if (hour < 10) {
+                    h.text("0" + hour);
+                } else {
+                    h.text(hour);
+                }
+                if (min < 10) {
+                    m.text("0" + min);
+                } else {
+                    m.text(min);
+                }
+                if (sec < 10) {
+                    s.text("0" + sec);
+                } else {
+                    s.text(sec);
+                }
                 if (time <= 0) {
                     alert("시간 끝!")
                     stop = false;
@@ -78,14 +105,20 @@ window.onload = function () {
     });
 
     $("#resetBtn").on("click", function () {
-        if(temp == 0) return;
+        clearInterval(timeId);
+        stop = false;
+        if (temp == 0) return;
         console.log(temp);
         let hour = Math.floor(temp / 3600);
         let min = Math.floor((temp - hour * 3600) / 60);
         let sec = temp % 60;
-        h.text(hour);
-        m.text(min);
-        s.text(sec);
+        if (hour < 10) { h.text("0" + hour);}
+        else { h.text(hour);}
+        if (min < 10) {  m.text("0" + min);} 
+        else { m.text(min); }
+        if (sec < 10) {  s.text("0" + sec); } 
+        else { s.text(sec);  }
+
     });
 
 }
