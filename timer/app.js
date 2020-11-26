@@ -24,42 +24,68 @@ window.onload = function () {
     //     $(".slider > img").eq(idx).stop().animate({ "left": "-100%" }, 800);
     //     idx = next;
     // }, 3000);
-    $(".text-box").on("click", function(){
+    const h = $(".h");
+    const m = $(".m");
+    const s = $(".s");
+    let temp;
+    $(".text-box").on("click", function () {
         $(".data-box").fadeOut();
         $(".set-box").fadeIn();
     });
-    $(".save").on("click", function(){
-        var name = $(".timer-name").val();
-        console.log(name);
-        if(name == null){
+    $(".save").on("click", function () {
+        if ($(".timer-name").val() == '') {
             alert("타이머 이름을 정해주세요");
-            return;   
+        } else {
+            alert("값이 있음")
+            $(".data-box").fadeIn();
+            $(".set-box").fadeOut();
+            h.text($("#h").val());
+            m.text($("#m").val());
+            s.text($("#s").val());
+            temp = $("#h").val() * 3600 + $("#m").val() + $("#s").val() * 1;
         }
-        // $(".data-box").fadeIn();
-        // $(".set-box").fadeOut();
     });
-    // window.onload = function(){
-    //     const h = $(".h");
-    //     const m = $(".m");
-    //     const s = $(".s");
-    
-    //     let time =h.text() * 3600 + m.text() * 60 + s.text() *1;
-    
-    //     let timeId = setInterval(()=>{
-    //         time--;
-    
-    //         let hour = Math.floor(time / 3600);
-    //         let min = Math.floor((time - hour * 3600) /60);
-    //         let sec = time % 60;
-    
-    //         h.text(hour);
-    //         m.text(min);
-    //         s.text(sec);
-    
-    //         if(time <=0 ){
-    //             clearInterval(timeId);
-    //         }
-    //     },1000);
-    // }
+    let stop = false;
+    let timeId;
+    $("#start").on("click", function () {
+        let time = h.text() * 3600 + m.text() * 60 + s.text() * 1;
+        if(time == 0) return;
+        console.log(temp);
+
+        if (stop == false) {
+            stop = true;
+            timeId = setInterval(() => {
+                time--;
+
+                let hour = Math.floor(time / 3600);
+                let min = Math.floor((time - hour * 3600) / 60);
+                let sec = time % 60;
+
+                h.text(hour);
+                m.text(min);
+                s.text(sec);
+
+                if (time <= 0) {
+                    alert("시간 끝!")
+                    stop = false;
+                    clearInterval(timeId);
+                }
+            }, 1000);
+        } else {
+            clearInterval(timeId);
+            stop = false;
+        }
+    });
+
+    $("#resetBtn").on("click", function () {
+        if(temp == 0) return;
+        console.log(temp);
+        let hour = Math.floor(temp / 3600);
+        let min = Math.floor((temp - hour * 3600) / 60);
+        let sec = temp % 60;
+        h.text(hour);
+        m.text(min);
+        s.text(sec);
+    });
 
 }
