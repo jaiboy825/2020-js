@@ -40,25 +40,16 @@ window.onload = function () {
             $(".data-box").fadeIn();
             $(".set-box").fadeOut();
             // 00 틀 맞춰주기
-            if ($("#h").val() < 10) {
-                h.text("0" + $("#h").val());
-            } else {
-                h.text($("#h").val());
-            }
-            if ($("#m").val() < 10) {
-                m.text("0" + $("#m").val());
-            } else {
-                m.text($("#m").val());
-            }
-            if ($("#s").val() < 10) {
-                s.text("0" + $("#s").val());
-            } else {
-                s.text($("#s").val());
-            }
+            let hour = "00" + $("#h").val();
+            let min = "00" + $("#m").val();
+            let sec = "00" + $("#s").val();
+            h.text(hour.substring(hour.length - 2));
+            m.text(min.substring(min.length - 2));
+            s.text(sec.substring(sec.length - 2));
             // 타이머 시간 모양 맞추기
-            $(".total").text( $("#h").val() + "시간 " + $("#m").val() + "분 " + $("#s").val() + "초");
-            
-            
+            $(".total").text($("#h").val() + "시간 " + $("#m").val() + "분 " + $("#s").val() + "초");
+
+
             temp = $("#h").val() * 3600 + $("#m").val() * 60 + $("#s").val() * 1;
         }
     });
@@ -74,24 +65,12 @@ window.onload = function () {
             timeId = setInterval(() => {
                 time--;
 
-                let hour = Math.floor(time / 3600);
-                let min = Math.floor((time - hour * 3600) / 60);
-                let sec = time % 60;
-                if (hour < 10) {
-                    h.text("0" + hour);
-                } else {
-                    h.text(hour);
-                }
-                if (min < 10) {
-                    m.text("0" + min);
-                } else {
-                    m.text(min);
-                }
-                if (sec < 10) {
-                    s.text("0" + sec);
-                } else {
-                    s.text(sec);
-                }
+                let hour = "00" + Math.floor(time / 3600);
+                let min = "00" + Math.floor((time - hour * 3600) / 60);
+                let sec = "00" + time % 60;
+                h.text(hour.substring(hour.length - 2));
+                m.text(min.substring(min.length - 2));
+                s.text(sec.substring(sec.length - 2));
                 if (time <= 0) {
                     alert("시간 끝!")
                     stop = false;
@@ -109,15 +88,13 @@ window.onload = function () {
         stop = false;
         if (temp == 0) return;
         console.log(temp);
-        let hour = Math.floor(temp / 3600);
-        let min = Math.floor((temp - hour * 3600) / 60);
-        let sec = temp % 60;
-        if (hour < 10) { h.text("0" + hour);}
-        else { h.text(hour);}
-        if (min < 10) {  m.text("0" + min);} 
-        else { m.text(min); }
-        if (sec < 10) {  s.text("0" + sec); } 
-        else { s.text(sec);  }
+        let hour = "00" + Math.floor(temp / 3600);
+        let min = "00" + Math.floor((temp - hour * 3600) / 60);
+        let sec = "00" + temp % 60;
+        h.text(hour.substring(hour.length - 2));
+        m.text(min.substring(min.length - 2));
+        s.text(sec.substring(sec.length - 2));
+
 
     });
 
